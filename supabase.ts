@@ -1,8 +1,7 @@
 
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.39.7';
+import { createClient } from '@supabase/supabase-js';
 
 const SUPABASE_URL = 'https://bjtbpbbejwmhtvddugjn.supabase.co';
-// Nota: A chave abaixo deve ser a sua anon/public key completa do projeto
-const SUPABASE_KEY = 'YOUR_ACTUAL_PUBLISHABLE_KEY'; 
+const SUPABASE_KEY = 'sb_publishable_LD3fXQXNZgkDSNeF7ezwGA_XQSJd8Cx'; 
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);

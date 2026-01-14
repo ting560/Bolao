@@ -8,6 +8,7 @@ import Dashboard from './components/Dashboard';
 import Guesses from './components/Guesses';
 import Admin from './components/Admin';
 import { calculatePoints } from './utils/scoring';
+import { persistenceService } from './services/PersistenceService';
 
 const DEFAULT_CONFIG: BolaoConfig = {
   pointsNaMosca: 12,
@@ -21,11 +22,69 @@ const DEFAULT_CONFIG: BolaoConfig = {
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>(Page.DASHBOARD);
   const [currentUser, setCurrentUser] = useState<User | null>(null);
-  const [matches, setMatches] = useState<Match[]>(INITIAL_MATCHES);
-  const [users, setUsers] = useState<User[]>(INITIAL_USERS);
+  const [matches, setMatches] = useState<Match[]>([]);
+  const [users, setUsers] = useState<User[]>([]);
   const [guesses, setGuesses] = useState<Guess[]>([]);
   const [config, setConfig] = useState<BolaoConfig>(DEFAULT_CONFIG);
   const [activeApiUrl, setActiveApiUrl] = useState<string>('');
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Carregar dados do Supabase ao iniciar
+  useEffect(() => {
+    const loadData = async () => {
+      setIsLoading(true);
+      try {
+        // Inicializar banco de dados
+        await persistenceService.initializeDatabase();
+        
+        // Carregar todos os dados
+        const data = await persistenceService.loadAllData();
+        
+        if (data) {
+          setUsers(data.users.length > 0 ? data.users : INITIAL_USERS);
+          setMatches(data.matches.length > 0 ? data.matches : INITIAL_MATCHES);
+          setGuesses(data.guesses || []);
+          setConfig(data.config || DEFAULT_CONFIG);
+          setActiveApiUrl(data.api_url || '');
+        } else {
+          // Se falhar, usar dados padrão
+          setUsers(INITIAL_USERS);
+          setMatches(INITIAL_MATCHES);
+          setGuesses([]);
+          setConfig(DEFAULT_CONFIG);
+        }
+      } catch (error) {
+        console.error('Erro ao carregar dados:', error);
+        // Usar dados padrão em caso de erro
+        setUsers(INITIAL_USERS);
+        setMatches(INITIAL_MATCHES);
+        setGuesses([]);
+        setConfig(DEFAULT_CONFIG);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadData();
+  }, []);
+
+  // Salvar dados sempre que houver alterações
+  useEffect(() => {
+    if (!isLoading) {
+      const saveTimer = setTimeout(async () => {
+        try {
+          await persistenceService.saveAllData(users, matches, guesses, {
+            ...config,
+            api_url: activeApiUrl
+          });
+        } catch (error) {
+          console.error('Erro ao salvar dados:', error);
+        }
+      }, 1000); // Debounce de 1 segundo
+
+      return () => clearTimeout(saveTimer);
+    }
+  }, [users, matches, guesses, config, activeApiUrl, isLoading]);
 
   // Sincronização de Resultados Live (API Externa ou PHP)
   useEffect(() => {
