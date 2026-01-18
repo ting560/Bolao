@@ -1,0 +1,668 @@
+/* --- START OF FILE estilo.css --- */
+
+/* Estilos globais para o corpo da página */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background: #f0f2f5; /* Cor de fundo suave */
+    margin: 0;
+    padding: 10px; /* Padding inicial para mobile */
+    color: #1c1e21; /* Cor de texto padrão */
+    line-height: 1.5;
+}
+
+/* Estilos para o contêiner principal do conteúdo */
+.container {
+    max-width: 850px; /* Largura máxima do conteúdo */
+    margin: 10px auto; /* Centraliza o contêiner e adiciona margem vertical */
+    background: #fff; /* Fundo branco para o conteúdo */
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.1); /* Sombra suave */
+    padding: 15px; /* Espaçamento interno */
+}
+
+/* Estilos para o título principal (Bolão entre Amigos) */
+h1 {
+    text-align: center;
+    color: #1877f2; /* Azul vibrante */
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1.5em; /* Tamanho da fonte relativo */
+}
+
+/* Estilos para o link de atualização e fazer aposta */
+.atualizar-link { /* Classe para os links "Fazer Aposta" e "Atualizar Dados" */
+    display: block;
+    text-align: center;
+    margin: 15px 0;
+    color: #1877f2;
+    text-decoration: none;
+    font-weight: 600;
+}
+.atualizar-link:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para informações da rodada */
+.rodada-info {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #3498db;
+    font-weight: 600;
+}
+
+/* Estilos para a lista de jogos */
+.jogos-lista {
+    list-style: none; /* Remove marcadores de lista */
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilos base para cada item de jogo (o "card" do jogo) */
+.jogo-item {
+    margin-bottom: 20px; /* Espaço entre os cards de jogo */
+    border: 1px solid #e0e0e0; /* Borda leve */
+    border-radius: 8px; /* Cantos arredondados */
+    overflow: hidden; /* Garante que o conteúdo respeite o border-radius */
+    background: #fff; /* Fundo branco para o card */
+    transition: background-color 0.2s ease-in-out; /* Transição suave para hover */
+    padding: 0; /* O padding será aplicado internamente */
+}
+
+/* Estilos para o último item de jogo (remove a borda inferior se houver) */
+.jogo-item:last-child {
+    border-bottom: none;
+}
+
+/* Estilo de hover para o card do jogo */
+.jogo-item:hover > .jogo-header { /* Aplica o hover no header quando o item é hoverado */
+    background-color: #f7f8fa; /* Fundo mais claro ao passar o mouse */
+}
+
+/* Estilos para o cabeçalho do jogo (contêiner principal das informações do jogo) */
+.jogo-header {
+    display: flex; /* Usa flexbox para layout */
+    flex-direction: column; /* Padrão mobile: empilha as seções verticalmente (topo, score, fundo) */
+    align-items: center; /* Centraliza conteúdo horizontalmente */
+    cursor: pointer; /* Indica que é clicável para expandir palpites */
+    padding: 15px; /* Espaçamento interno do cabeçalho */
+    background: #f9f9f9; /* Fundo ligeiramente cinza claro */
+}
+
+/* Estilos para a seção de topo (data e hora) */
+.jogo-top-info {
+    display: flex;
+    justify-content: center; /* Centraliza a data/hora */
+    align-items: center;
+    width: 100%; /* Ocupa largura total */
+    margin-bottom: 10px; /* Espaço abaixo */
+    font-size: 0.9em;
+    color: #606770;
+    font-weight: 500;
+    text-align: center;
+}
+/* Estilos para a data e horário (dentro do jogo-top-info) */
+.data-horario {
+    font-weight: 600; /* Data/hora mais em negrito */
+}
+
+/* Estilos para a linha principal (times e placar) */
+.jogo-score-line {
+    display: flex; /* **Usa flexbox** */
+    align-items: center; /* **Alinha itens verticalmente ao centro** */
+    justify-content: space-between; /* **Distribui espaço entre os times e o placar** */
+    width: 100%; /* Ocupa largura total */
+    margin-bottom: 10px; /* Espaço abaixo */
+    /* Removido o 'gap' para gerenciar o espaçamento manualmente com margens */
+}
+
+/* Estilos para as abreviações e logos dos times */
+/* Contêiner para a abreviação + logo do time 1 */
+.time-info.time1 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* **Alinha conteúdo à direita para o time da casa** */
+    flex: 1; /* Permite que o bloco do time cresça */
+    padding-right: 10px; /* Espaço entre o time e o placar */
+}
+/* Contêiner para a abreviação + logo do time 2 */
+.time-info.time2 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* **Alinha conteúdo à esquerda para o time visitante** */
+    flex: 1; /* Permite que o bloco do time cresça */
+    padding-left: 10px; /* Espaço entre o placar e o time */
+}
+
+/* Estilos para a abreviação do time */
+.time-abbrev {
+    font-weight: 600;
+    font-size: 1.1em;
+    color: #1c1e21; /* Cor do texto padrão */
+    flex-shrink: 0; /* Não permite que encolha */
+    /* Margens para separar da logo e do placar */
+    margin: 0 5px; /* Padrão, ajustado nas media queries */
+}
+
+/* Estilos para o logo do time */
+.time-logo {
+    width: 30px; /* Tamanho fixo do logo */
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Não permite que encolha */
+}
+/* Garante que a imagem do logo se ajuste ao contêiner */
+.time-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Ordem dos elementos: Abreviação, Logo (para o time1) */
+.time-info.time1 .time-abbrev { order: 1; }
+.time-info.time1 .time-logo { order: 2; }
+
+/* Ordem dos elementos: Logo, Abreviação (para o time2) */
+.time-info.time2 .time-logo { order: 1; }
+.time-info.time2 .time-abbrev { order: 2; }
+
+
+/* Estilos para os gols e o 'X' central */
+.placar-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Não permite que encolha */
+    font-weight: bold;
+    font-size: 1.6em; /* Tamanho maior para os gols */
+    color: #1c1e21; /* Cor padrão para os gols */
+    min-width: 70px; /* Garante que o bloco do placar tenha largura mínima */
+}
+.placar-gol {
+    /* Sem margens extras aqui, o 'X' tem margem para separar */
+}
+.placar-x {
+    margin: 0 5px; /* Espaço entre os gols e o 'X' */
+    color: #606770; /* Cor cinza para o 'X' */
+    font-size: 1em; /* Garante que 'X' não seja maior que os gols */
+}
+
+
+/* Estilos para a seção de status e link de transmissão */
+.jogo-bottom-info {
+    display: flex;
+    flex-direction: column; /* Empilha status e link */
+    align-items: center; /* Centraliza horizontalmente */
+    width: 100%;
+    margin-top: 5px; /* Espaço acima */
+}
+/* Estilos para o status do jogo (Encerrado, Em Breve, Ao Vivo) como um BADGE */
+.status {
+    text-transform: uppercase;
+    font-size: 0.75em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 4px 8px; /* Padding para parecer um botão */
+    border-radius: 4px;
+    background-color: #e0e0e0; /* Fundo padrão para o status */
+    color: #606770;
+    margin-bottom: 5px; /* Espaço entre status e link */
+    white-space: nowrap; /* Evita quebra de linha no texto do status */
+}
+/* Cores específicas para status AO VIVO */
+.status.ao-vivo {
+    background-color: #e74c3c; /* Vermelho */
+    color: white;
+}
+/* Cores específicas para status EM BREVE */
+.status.em-breve {
+    background-color: #f0f0f0; /* Cinza claro */
+    color: #606770;
+}
+/* Cores específicas para status ENCERRADO */
+.status.encerrado {
+    background-color: #28a745; /* Verde */
+    color: white;
+}
+
+/* Estilos para o link de transmissão */
+.transmissao-link {
+    font-size: 0.85em;
+    color: #1877f2; /* Azul link */
+    text-decoration: none;
+    font-weight: 500;
+}
+.transmissao-link:hover {
+    text-decoration: underline;
+}
+
+
+/* Estilos para caixas de mensagem (sucesso, erro, aviso) */
+.message-box {
+    border: 1px solid;
+    text-align: center;
+    padding: 12px;
+    margin: 15px auto;
+    border-radius: 5px;
+    max-width: 95%; /* Ocupa a maior parte da largura */
+    font-size: 0.9em;
+}
+.error-message { color: #d8000c; background-color: #ffbaba; border-color: #d8000c;}
+.warning-message { color: #9f6000; background-color: #feefb3; border-color: #9f6000;}
+.loading-indicator { text-align: center; padding: 20px; font-size: 1.1em; color: #1877f2; display: none; }
+.cache-notice { font-size: 0.8em; text-align: center; color: #8a8d91; margin-top: 10px; padding: 5px;}
+
+/* Estilos para a tabela de classificação dos apostadores */
+.classificacao-apostadores {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+.classificacao-apostadores h2 {
+    text-align: center;
+    color: #1877f2;
+    margin-bottom: 15px;
+}
+.classificacao-apostadores table {
+    width: 100%;
+    border-collapse: collapse; /* Remove espaçamento entre bordas de células */
+    margin: 0 auto;
+    max-width: 600px; /* Largura máxima da tabela */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.classificacao-apostadores th,
+.classificacao-apostadores td {
+    border: 1px solid #e1e1e1; /* Borda para as células */
+    padding: 10px 12px;
+    text-align: left;
+}
+.classificacao-apostadores th {
+    background-color: #f0f2f5;
+    color: #333;
+    font-weight: 600;
+}
+.classificacao-apostadores tr:nth-child(even) { /* Estilo para linhas pares (listra) */
+    background-color: #f9f9f9;
+}
+.classificacao-apostadores tr:hover { /* Estilo ao passar o mouse na linha */
+    background-color: #f1f1f1;
+}
+/* Centraliza e define largura para a coluna de posição */
+.classificacao-apostadores td:first-child,
+.classificacao-apostadores th:first-child {
+    text-align: center;
+    width: 80px; /* Largura para coluna Posição */
+}
+
+/* Estilos para a seção de palpites (conteúdo que expande ao clicar no jogo) */
+.palpites-container {
+    background: #fcfcfc; /* Fundo ligeiramente diferente do header */
+    border-top: 1px solid #e0e0e0; /* Borda superior para separar do cabeçalho */
+    padding-bottom: 15px; /* Padding na parte de baixo */
+}
+.palpites-titulo {
+    padding: 10px 15px;
+    font-weight: bold;
+    background: #f0f0f0; /* Fundo para o título da seção de palpites */
+    border-bottom: 1px solid #e0e0e0;
+}
+.palpites-lista {
+    max-height: 300px; /* Limita a altura e adiciona barra de rolagem */
+    overflow-y: auto;
+    padding: 0 15px; /* Espaçamento interno lateral */
+}
+/* Estilo para cada item de palpite individual */
+.palpite-item {
+    display: flex;
+    justify-content: space-between; /* Espaça nome do apostador e palpite */
+    align-items: center;
+    padding: 12px 0; /* Espaçamento vertical, padding horizontal já vem da lista */
+    border-bottom: 1px solid #eee; /* Borda inferior para separar palpites */
+}
+/* Remove borda inferior do último palpite na lista */
+.palpites-lista .palpite-item:last-child {
+    border-bottom: none;
+}
+
+
+/* === ESTILOS DA PÁGINA DE ADMINISTRAÇÃO (mantidos, não alterados) === */
+
+.container-admin {
+    max-width: 900px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+.admin-header {
+    background-color: #337ab7;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 8px 8px 0 0;
+}
+.admin-header h1 {
+    margin: 0;
+    font-size: 1.8em;
+    color: white;
+}
+.login-form {
+    width: 350px;
+    margin: 50px auto;
+    padding: 25px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+.login-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+.login-form input[type='password'],
+.login-form input[type='text'],
+.login-form input[type='number'],
+.login-form input[type='submit'] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+.login-form input[type='submit'] {
+    background-color: #5cb85c;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+.login-form input[type='submit']:hover {
+    background-color: #4cae4c;
+}
+.login-form .message-box {
+    margin-bottom: 15px;
+}
+.logout-link {
+    float: right;
+    color: white;
+    background-color: #d9534f;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
+}
+.logout-link:hover {
+    background-color: #c9302c;
+}
+.admin-section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+.admin-section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.admin-section h2,
+.admin-section h3,
+.admin-section h4,
+.admin-section h5 {
+    color: #337ab7;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.admin-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+.admin-section ul li {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+.admin-section ul li:hover {
+    background-color: #f5f5f5;
+}
+.admin-section ul li a {
+    text-decoration: none;
+    color: #2a6496;
+    font-weight: 500;
+}
+.admin-section ul li a:hover {
+    text-decoration: underline;
+    color: #1b4f72;
+}
+.palpites-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 0.95em;
+}
+.palpites-table th,
+.palpites-table td {
+    border: 1px solid #ddd;
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: middle;
+}
+.palpites-table th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+    color: #333;
+}
+.palpites-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.palpites-table tr:hover {
+    background-color: #f1f1f1;
+}
+.btn {
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 2px;
+    font-size: 0.9em;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+}
+.btn-primary { background-color: #337ab7; color: white; border-color: #2e6da4; }
+.btn-primary:hover { background-color: #286090; border-color: #204d74; }
+.btn-success { background-color: #5cb85c; color: white; border-color: #4cae4c; }
+.btn-success:hover { background-color: #449d44; border-color: #398439; }
+.btn-danger { background-color: #d9534f; color: white; border-color: #d43f3a; }
+.btn-danger:hover { background-color: #c9302c; border-color: #ac2925; }
+.btn-warning { background-color: #f0ad4e; color: white; border-color: #eea236; }
+.btn-warning:hover { background-color: #ec971f; border-color: #d58512; }
+.btn-default, .btn-cancel { background-color: #f0f0f0; color: #333; border-color: #ccc; }
+.btn-default:hover, .btn-cancel:hover { background-color: #e6e6e6; border-color: #adadad; }
+.palpites-table .btn-edit-palpite {
+    display: inline-block; padding: 6px 10px; font-size: 0.85em; font-weight: 500;
+    text-align: center; text-decoration: none; cursor: pointer; border-radius: 4px;
+    background-color: #f0ad4e; color: white; border: 1px solid #eea236;
+    transition: all 0.2s ease-in-out;
+}
+.palpites-table .btn-edit-palpite:hover { background-color: #ec971f; border-color: #d58512; }
+.edit-palpite-form h4 { margin-bottom: 10px; }
+.edit-palpite-form label { display: block; margin-bottom: 5px; font-weight: 500; }
+.edit-palpite-form input[type='text'],
+.edit-palpite-form input[type='number'] {
+    width: auto; padding: 10px; margin-right: 10px; margin-bottom: 15px;
+    border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;
+    display: inline-block; vertical-align: top;
+}
+.edit-palpite-form .palpite-edit-inputs-admin input[type="number"] {
+    width: 60px; text-align: center; margin-right: 5px; margin-bottom: 0;
+}
+.edit-palpite-form input[type='submit'] {
+    padding: 10px 15px; font-size: 1em; background-color: #5cb85c;
+    color: white; border: 1px solid #4cae4c; border-radius: 4px;
+    cursor: pointer; transition: background-color 0.2s ease;
+    display: inline-block; vertical-align: top;
+}
+.edit-palpite-form input[type='submit']:hover { background-color: #449d44; }
+.edit-palpite-form .btn-cancel {
+    padding: 10px 15px; font-size: 1em; text-decoration: none;
+    background-color: #ccc; color: black; border: 1px solid #bbb;
+    border-radius: 4px; display: inline-block; vertical-align: top; margin-left: 5px;
+}
+.edit-palpite-form .btn-cancel:hover { background-color: #bbb; }
+.edit-palpite-form .palpite-edit-inputs-admin { display: flex; align-items: center; margin-bottom: 10px; }
+.edit-palpite-form .palpite-edit-inputs-admin span { margin-right: 5px; font-weight: bold; }
+.clearfix::after { content: ""; clear: both; display: table; }
+footer.admin-footer {
+    text-align: center; margin-top: 30px; padding-top: 20px;
+    border-top: 1px solid #eee; font-size: 0.9em; color: #777;
+}
+.lista-jogos-agregados { list-style-type: none; padding-left: 0; margin-top: 15px; }
+.jogo-item-agregado { border: 1px solid #eee; margin-bottom: 10px; border-radius: 5px; background-color: #fff; overflow: hidden; }
+.jogo-info-clickable { cursor: pointer; font-weight: bold; display: flex; align-items: center; padding: 10px; transition: background-color 0.2s ease; }
+.jogo-info-clickable:hover { background-color: #f0f0f0; }
+.logo-time-xs { width: 20px; height: 20px; margin-right: 8px; margin-left: 8px; vertical-align: middle; object-fit: contain; }
+.palpites-detalhes { margin-top: 0; padding: 10px 15px; background-color: #fcfcfc; border-top: 1px solid #eee; font-size: 0.9em; }
+.palpites-detalhes ul { list-style: none; padding: 0; margin: 0; }
+.palpites-detalhes li { padding: 5px 0; border-bottom: 1px dotted #ddd; }
+.palpites-detalhes li:last-child { border-bottom: none; }
+
+/* === Media Queries (Responsividade) === */
+
+/* Para telas maiores que 600px (Desktop e Tablets maiores) */
+@media (min-width: 601px) {
+    body { padding: 20px; }
+    .container { padding: 20px; margin: 20px auto; }
+    h1 { font-size: 24px; }
+    .rodada-info { font-size: 1.4em; }
+
+    /* O cabeçalho do jogo em desktop: mantém em coluna para manter a estrutura topo/meio/fundo */
+    .jogo-header {
+        padding: 16px 12px; /* Restaura padding para desktop */
+    }
+
+    /* A linha principal do placar e times se torna a principal linha horizontal */
+    .jogo-score-line {
+        justify-content: center; /* Centraliza tudo */
+        width: 100%;
+        margin-bottom: 0; /* Remove a margem inferior */
+    }
+
+    /* Estilos para a seção de topo (data e hora) em desktop */
+    .jogo-top-info {
+        position: absolute; /* Posiciona absolutamente dentro do header */
+        top: 10px;
+        left: 0;
+        right: 0;
+        margin-bottom: 0;
+        font-size: 0.8em; /* Menor em desktop */
+        color: #8a8d91;
+    }
+
+    /* Ajustes para as abreviações e logos em desktop */
+    .time-abbrev { font-size: 1.0em; } /* Tamanho normal, talvez um pouco menor que mobile */
+    .time-logo { width: 32px; height: 32px; } /* Logos um pouco maiores */
+
+    /* Bloco do placar em desktop */
+    .placar-display {
+        font-size: 1.4em; /* Gols um pouco menores que mobile */
+        min-width: 80px; /* Garante espaço */
+    }
+    .placar-x { font-size: 0.9em; } /* "X" um pouco menor */
+
+
+    /* Seção de status e link de transmissão em desktop */
+    .jogo-bottom-info {
+        position: absolute; /* Posiciona absolutamente dentro do header */
+        bottom: 10px;
+        left: 0;
+        right: 0;
+        margin-top: 0;
+        flex-direction: row; /* Alinha status e link lado a lado */
+        justify-content: center; /* Centraliza */
+        gap: 15px; /* Espaço entre status e link */
+    }
+    .status {
+        margin-bottom: 0; /* Remove margem inferior */
+        font-size: 0.65em; /* Um pouco menor */
+        padding: 3px 6px; /* Padding ajustado */
+    }
+    .transmissao-link {
+        font-size: 0.75em; /* Um pouco menor */
+    }
+
+
+    /* Ajusta a largura das colunas da tabela de classificação em desktop */
+    .classificacao-apostadores td:first-child,
+    .classificacao-apostadores th:first-child {
+        width: 50px;
+    }
+    .classificacao-apostadores td:nth-child(3),
+    .classificacao-apostadores th:nth-child(3) {
+         width: 80px;
+         text-align: center;
+    }
+     .classificacao-apostadores td:nth-child(4),
+     .classificacao-apostadores th:nth-child(4),
+     .classificacao-apostadores td:nth-child(5),
+     .classificacao-apostadores th:nth-child(5) {
+          width: 80px;
+          text-align: center;
+     }
+
+    /* Ajustes para formulário de edição de palpite na área admin em desktop */
+    .edit-palpite-form input[type='text'],
+    .edit-palpite-form input[type='number'] {
+        width: auto;
+        margin-right: 10px;
+        margin-bottom: 0;
+    }
+    .edit-palpite-form .palpite-edit-inputs-admin {
+        margin-bottom: 0;
+    }
+}
+
+/* Media Query para telas muito pequenas (smartphones menores) */
+@media (max-width: 480px) {
+    .container { padding: 10px; }
+    h1 { font-size: 1.3em; margin-bottom: 10px; }
+    .rodada-info { font-size: 1.1em; margin-bottom: 15px; }
+    .jogo-item { margin-bottom: 15px; }
+    .jogo-header { padding: 8px; /* Mais compacto ainda */ }
+
+    .jogo-top-info {
+        font-size: 0.8em;
+        margin-bottom: 8px;
+    }
+    .data-horario { font-weight: 600; } /* Garante negrito */
+
+    .time-abbrev { font-size: 0.9em; } /* Abreviação ligeiramente menor */
+    .time-logo { width: 25px; height: 25px; }
+    .placar-gol { font-size: 1.5em; } /* Levemente menor */
+
+    .jogo-bottom-info {
+        margin-top: 8px;
+    }
+    .status { font-size: 0.65em; padding: 3px 6px; } /* Badge ainda menor */
+    .transmissao-link { font-size: 0.8em; }
+
+    .message-box { font-size: 0.85em; padding: 8px;}
+    .classificacao-apostadores th,
+    .classificacao-apostadores td { padding: 6px 5px; font-size: 0.85em; }
+    .palpites-titulo { padding: 7px 10px; font-size: 0.9em; }
+    .palpites-lista { padding: 0 10px; }
+    .palpite-item { padding: 8px 0;}
+}
+
+/* --- END OF FILE estilo.css --- */

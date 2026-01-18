@@ -1,0 +1,13 @@
+{
+    "users": [
+        {
+            "id": "696d3f0ade018",
+            "name": "Marcos",
+            "phone": "24999405406",
+            "email": "marcos560@gmail.com",
+            "password": "$2y$10$TpCl9LPmEIcpi1Dfn2J4e.8SrRUrWoWxVqE296Qzi82etnICRITxK",
+            "created_at": "2026-01-18 21:14:02",
+            "last_login": null
+        }
+    ]
+}

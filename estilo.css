@@ -1,0 +1,1193 @@
+/* --- START OF FILE estilo.css --- */
+
+/* Estilos globais para o corpo da página */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin: 0;
+    padding: 10px;
+    color: #1c1e21;
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+/* Estilos para o contêiner principal do conteúdo */
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    padding: 25px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Estilos para o título principal (Bolão entre Amigos) */
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 2.2em;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    background: linear-gradient(45deg, #3498db, #2c3e50);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Estilos para o link de atualização e fazer aposta */
+.atualizar-link {
+    display: inline-block;
+    text-align: center;
+    margin: 15px 10px;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px 25px;
+    border-radius: 25px;
+    background: #f8f9fa;
+    border: 2px solid #3498db;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(52, 152, 219, 0.2);
+}
+
+.atualizar-link:hover {
+    background: #3498db;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+    text-decoration: none;
+}
+
+/* Estilos para informações da rodada */
+.rodada-info {
+    text-align: center;
+    font-size: 1.4em;
+    margin-bottom: 25px;
+    color: #2c3e50;
+    font-weight: 600;
+    padding: 15px;
+    background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+    border-radius: 10px;
+    border-left: 5px solid #3498db;
+}
+
+/* Estilos para a lista de jogos */
+.jogos-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilos base para cada item de jogo (o "card" do jogo) */
+.jogo-item {
+    margin-bottom: 25px;
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    transition: all 0.3s ease;
+    padding: 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.jogo-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Estilos para o cabeçalho do jogo (contêiner principal das informações do jogo) */
+.jogo-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    position: relative;
+    min-height: 140px;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.jogo-header:hover {
+    border-color: #3498db;
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+}
+
+/* Estilos para a seção de topo (data e hora) */
+.jogo-top-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: #606770;
+    font-weight: 600;
+    text-align: center;
+}
+
+.data-horario {
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+/* Estilos para a linha principal (times e placar) */
+.jogo-score-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+/* Estilos para as abreviações dos times */
+.time-abbrev {
+    font-weight: 700;
+    font-size: 1.3em;
+    color: #2c3e50;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Estilos para os logos dos times */
+.time-logo {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #f8f9fa;
+    padding: 5px;
+}
+
+.time-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Estilos para os gols e o 'X' central */
+.placar-gol {
+    font-weight: bold;
+    font-size: 2.0em;
+    color: #2c3e50;
+    flex-shrink: 0;
+    min-width: 40px;
+    text-align: center;
+}
+
+.placar-x {
+    margin: 0 8px;
+    color: #606770;
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+/* Estilos para a seção de status e link de transmissão */
+.jogo-bottom-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.status {
+    text-transform: uppercase;
+    font-size: 0.85em;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: white;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.status.ao-vivo {
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+}
+
+.status.em-breve {
+    background: linear-gradient(45deg, #f39c12, #d35400);
+}
+
+.status.encerrado {
+    background: linear-gradient(45deg, #27ae60, #229954);
+}
+
+.transmissao-link {
+    font-size: 0.9em;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 15px;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+.transmissao-link:hover {
+    background: #3498db;
+    color: white;
+    text-decoration: none;
+}
+
+/* Estilos para caixas de mensagem (sucesso, erro, aviso) */
+.message-box {
+    border: 1px solid;
+    text-align: center;
+    padding: 15px;
+    margin: 20px auto;
+    border-radius: 8px;
+    max-width: 95%;
+    font-size: 1.0em;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.error-message { 
+    color: #c0392b; 
+    background-color: #fadbd8; 
+    border-color: #e74c3c;
+    border-left: 5px solid #e74c3c;
+}
+
+.warning-message { 
+    color: #d35400; 
+    background-color: #fdebd0; 
+    border-color: #f39c12;
+    border-left: 5px solid #f39c12;
+}
+
+.success-message { 
+    color: #27ae60; 
+    background-color: #d5f4e6; 
+    border-color: #27ae60;
+    border-left: 5px solid #27ae60;
+}
+
+.loading-indicator { 
+    text-align: center; 
+    padding: 25px; 
+    font-size: 1.2em; 
+    color: #3498db; 
+    display: none; 
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.cache-notice { 
+    font-size: 0.85em; 
+    text-align: center; 
+    color: #6c757d; 
+    margin-top: 15px; 
+    padding: 8px;
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+/* Estilos para a tabela de classificação dos apostadores */
+.classificacao-apostadores {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 2px solid #3498db;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.classificacao-apostadores h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.6em;
+    font-weight: 700;
+}
+
+.classificacao-apostadores table {
+    width: 100%;
+    border-collapse: separate;
+    margin: 0 auto;
+    max-width: 700px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.classificacao-apostadores th,
+.classificacao-apostadores td {
+    border: 1px solid #dee2e6;
+    padding: 12px 15px;
+    text-align: center;
+}
+
+.classificacao-apostadores th {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.classificacao-apostadores tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.classificacao-apostadores tr:hover {
+    background-color: #e3f2fd;
+    transform: scale(1.01);
+    transition: all 0.2s ease;
+}
+
+.classificacao-apostadores td:first-child,
+.classificacao-apostadores th:first-child {
+    text-align: center;
+    width: 60px;
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+}
+
+/* Estilos para as colunas de pontuação detalhada */
+.classificacao-apostadores td:nth-child(3),
+.classificacao-apostadores th:nth-child(3),
+.classificacao-apostadores td:nth-child(4),
+.classificacao-apostadores th:nth-child(4),
+.classificacao-apostadores td:nth-child(5),
+.classificacao-apostadores th:nth-child(5) {
+     text-align: center;
+}
+
+/* Estilos para a seção de palpites (conteúdo que expande ao clicar no jogo) */
+.palpites-container {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    border-top: 2px solid #3498db;
+    padding-bottom: 20px;
+    border-radius: 0 0 12px 12px;
+}
+
+.palpites-titulo {
+    padding: 15px 20px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 1.1em;
+}
+
+.palpites-lista {
+    max-height: 350px;
+    overflow-y: auto;
+    padding: 0 20px;
+}
+
+.palpite-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+    border-radius: 6px;
+    margin: 5px 0;
+    padding: 12px 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.palpites-lista .palpite-item:last-child {
+    border-bottom: none;
+}
+
+/* Estilos para a seção de Regras e Premiação */
+.regras-premiacao-section {
+    margin-top: 40px;
+    padding: 25px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: 1px solid #dee2e6;
+}
+
+.regras-premiacao-section h3,
+.regras-premiacao-section h4 {
+    color: #2c3e50;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.regras-premiacao-section ul {
+    list-style-type: none;
+    padding-left: 25px;
+    margin-bottom: 15px;
+}
+
+.regras-premiacao-section ul li {
+    position: relative;
+    margin-bottom: 10px;
+    padding-left: 20px;
+}
+
+.regras-premiacao-section ul li:before {
+    content: "•";
+    color: #3498db;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.regras-premiacao-section ul ul {
+    list-style-type: none;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.regras-premiacao-section ul ul li:before {
+    content: "◦";
+    color: #95a5a6;
+}
+
+/* === ESTILOS DA PÁGINA DE ADMINISTRAÇÃO (atualizados para modernidade) === */
+
+.container-admin {
+    max-width: 1000px;
+    margin: 25px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.admin-header {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    padding: 20px 25px;
+    text-align: center;
+    margin-bottom: 25px;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.admin-header h1 {
+    margin: 0;
+    font-size: 2.0em;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.login-form {
+    width: 400px;
+    margin: 60px auto;
+    padding: 30px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border: 1px solid #dee2e6;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1.1em;
+}
+
+.login-form input[type='password'],
+.login-form input[type='text'],
+.login-form input[type='number'],
+.login-form input[type='submit'] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    margin-bottom: 18px;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    font-size: 1.0em;
+    transition: all 0.3s ease;
+}
+
+.login-form input[type='password']:focus,
+.login-form input[type='text']:focus,
+.login-form input[type='number']:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.login-form input[type='submit'] {
+    background: linear-gradient(135deg, #27ae60, #229954);
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.login-form input[type='submit']:hover {
+    background: linear-gradient(135deg, #229954, #1e8449);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+}
+
+.login-form .message-box {
+    margin-bottom: 18px;
+}
+
+.logout-link {
+    float: right;
+    color: white;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.logout-link:hover {
+    background: linear-gradient(135deg, #c0392b, #a93226);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+}
+
+.admin-section {
+    margin-bottom: 35px;
+    padding-bottom: 25px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.admin-section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.admin-section h2,
+.admin-section h3,
+.admin-section h4,
+.admin-section h5 {
+    color: #2c3e50;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.admin-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.admin-section ul li {
+    margin-bottom: 12px;
+    padding: 8px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+}
+
+.admin-section ul li:hover {
+    background: #e3f2fd;
+    transform: translateX(5px);
+}
+
+.admin-section ul li a {
+    text-decoration: none;
+    color: #2a6496;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.admin-section ul li a:hover {
+    text-decoration: underline;
+    color: #1b4f72;
+    transform: translateX(2px);
+}
+
+.palpites-table {
+    width: 100%;
+    border-collapse: separate;
+    margin-top: 20px;
+    font-size: 1.0em;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.palpites-table th,
+.palpites-table td {
+    border: 1px solid #dee2e6;
+    padding: 12px 15px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.palpites-table th {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.palpites-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.palpites-table tr:hover {
+    background-color: #e3f2fd;
+    transform: scale(1.01);
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 18px;
+    margin: 3px;
+    font-size: 0.95em;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 6px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease-in-out;
+    white-space: nowrap;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.btn-primary { 
+    background: linear-gradient(135deg, #3498db, #2980b9); 
+    color: white; 
+    border-color: #2980b9; 
+}
+
+.btn-primary:hover { 
+    background: linear-gradient(135deg, #2980b9, #21618c); 
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+.btn-success { 
+    background: linear-gradient(135deg, #27ae60, #229954); 
+    color: white; 
+    border-color: #229954; 
+}
+
+.btn-success:hover { 
+    background: linear-gradient(135deg, #229954, #1e8449); 
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+}
+
+.btn-danger { 
+    background: linear-gradient(135deg, #e74c3c, #c0392b); 
+    color: white; 
+    border-color: #c0392b; 
+}
+
+.btn-danger:hover { 
+    background: linear-gradient(135deg, #c0392b, #a93226); 
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+}
+
+.btn-warning { 
+    background: linear-gradient(135deg, #f39c12, #d35400); 
+    color: white; 
+    border-color: #d35400; 
+}
+
+.btn-warning:hover { 
+    background: linear-gradient(135deg, #d35400, #ba4a00); 
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
+}
+
+.btn-default, .btn-cancel { 
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef); 
+    color: #333; 
+    border-color: #ced4da; 
+}
+
+.btn-default:hover, .btn-cancel:hover { 
+    background: linear-gradient(135deg, #e9ecef, #dee2e6); 
+    transform: translateY(-2px);
+}
+
+.palpites-table .btn-edit-palpite {
+    display: inline-block; 
+    padding: 8px 12px; 
+    font-size: 0.85em; 
+    font-weight: 600;
+    text-align: center; 
+    text-decoration: none; 
+    cursor: pointer; 
+    border-radius: 6px;
+    background: linear-gradient(135deg, #f39c12, #d35400); 
+    color: white; 
+    border: 2px solid #d35400;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.palpites-table .btn-edit-palpite:hover { 
+    background: linear-gradient(135deg, #d35400, #ba4a00); 
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
+}
+
+.edit-palpite-form h4 { 
+    margin-bottom: 15px; 
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.edit-palpite-form label { 
+    display: block; 
+    margin-bottom: 8px; 
+    font-weight: 600; 
+    color: #2c3e50;
+}
+
+.edit-palpite-form input[type='text'],
+.edit-palpite-form input[type='number'] {
+    width: auto; 
+    padding: 12px; 
+    margin-right: 12px; 
+    margin-bottom: 18px;
+    border: 2px solid #dee2e6; 
+    border-radius: 6px; 
+    box-sizing: border-box;
+    display: inline-block; 
+    vertical-align: top;
+    transition: all 0.3s ease;
+}
+
+.edit-palpite-form input[type='text']:focus,
+.edit-palpite-form input[type='number']:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.edit-palpite-form .palpite-edit-inputs-admin input[type="number"] {
+    width: 70px; 
+    text-align: center; 
+    margin-right: 8px; 
+    margin-bottom: 0;
+}
+
+.edit-palpite-form input[type='submit'] {
+    padding: 12px 20px; 
+    font-size: 1.0em; 
+    background: linear-gradient(135deg, #27ae60, #229954);
+    color: white; 
+    border: 2px solid #229954; 
+    border-radius: 6px;
+    cursor: pointer; 
+    transition: all 0.2s ease;
+    display: inline-block; 
+    vertical-align: top;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.edit-palpite-form input[type='submit']:hover { 
+    background: linear-gradient(135deg, #229954, #1e8449); 
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+}
+
+.edit-palpite-form .btn-cancel {
+    padding: 12px 20px; 
+    font-size: 1.0em; 
+    text-decoration: none;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef); 
+    color: #333; 
+    border: 2px solid #ced4da;
+    border-radius: 6px; 
+    display: inline-block; 
+    vertical-align: top; 
+    margin-left: 8px;
+    font-weight: 600;
+}
+
+.edit-palpite-form .btn-cancel:hover { 
+    background: linear-gradient(135deg, #e9ecef, #dee2e6); 
+    transform: translateY(-2px);
+}
+
+.edit-palpite-form .palpite-edit-inputs-admin { 
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 15px; 
+}
+
+.edit-palpite-form .palpite-edit-inputs-admin span { 
+    margin-right: 8px; 
+    font-weight: bold; 
+    color: #2c3e50;
+}
+
+.clearfix::after { 
+    content: ""; 
+    clear: both; 
+    display: table; 
+}
+
+footer.admin-footer {
+    text-align: center; 
+    margin-top: 40px; 
+    padding-top: 25px;
+    border-top: 2px solid #e9ecef; 
+    font-size: 0.95em; 
+    color: #6c757d;
+}
+
+.lista-jogos-agregados { 
+    list-style-type: none; 
+    padding-left: 0; 
+    margin-top: 20px; 
+}
+
+.jogo-item-agregado { 
+    border: 1px solid #dee2e6; 
+    margin-bottom: 12px; 
+    border-radius: 8px; 
+    background-color: #fff; 
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.jogo-info-clickable { 
+    cursor: pointer; 
+    font-weight: 600; 
+    display: flex; 
+    align-items: center; 
+    padding: 12px; 
+    transition: all 0.2s ease; 
+    background: #f8f9fa;
+}
+
+.jogo-info-clickable:hover { 
+    background-color: #e3f2fd; 
+    transform: translateX(5px);
+}
+
+.logo-time-xs { 
+    width: 25px; 
+    height: 25px; 
+    margin-right: 10px; 
+    margin-left: 10px; 
+    vertical-align: middle; 
+    object-fit: contain; 
+}
+
+.palpites-detalhes { 
+    margin-top: 0; 
+    padding: 15px 20px; 
+    background-color: #f8f9fa; 
+    border-top: 1px solid #dee2e6; 
+    font-size: 0.95em; 
+}
+
+.palpites-detalhes ul { 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+}
+
+.palpites-detalhes li { 
+    padding: 8px 0; 
+    border-bottom: 1px dotted #dee2e6; 
+}
+
+.palpites-detalhes li:last-child { 
+    border-bottom: none; 
+}
+
+/* Estilos para a página de bilhete de aposta */
+.bilhete-container {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    padding: 35px; 
+    border-radius: 16px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
+    max-width: 550px; 
+    margin: 30px auto; 
+    border: 2px solid #dee2e6;
+}
+
+.bilhete-container h1 { 
+    text-align: center; 
+    color: #2c3e50; 
+    margin-top: 0; 
+    margin-bottom: 12px; 
+    font-size: 1.8em; 
+}
+
+.bilhete-container h2 { 
+    text-align: center; 
+    color: #555; 
+    margin-top: 0; 
+    margin-bottom: 25px; 
+    font-size: 1.3em; 
+    border-bottom: 2px solid #3498db; 
+    padding-bottom: 12px;
+}
+
+.info-apostador { 
+    text-align: center; 
+    margin-bottom: 30px; 
+    font-size: 1.2em; 
+}
+
+.info-apostador strong { 
+    color: #0056b3; 
+    font-weight: 600;
+}
+
+.bilhete-container table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 20px; 
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.bilhete-container th, 
+.bilhete-container td { 
+    border: 1px solid #dee2e6; 
+    padding: 12px; 
+    text-align: center; 
+    font-size: 1.0em; 
+}
+
+.bilhete-container th { 
+    background: linear-gradient(135deg, #3498db, #2980b9); 
+    font-weight: 600; 
+    color: white; 
+}
+
+.time-logo-bilhete { 
+    width: 30px; 
+    height: 30px; 
+    vertical-align: middle; 
+    margin: 0 8px; 
+    object-fit: contain; 
+}
+
+.vs { 
+    font-weight: bold; 
+    color: #e74c3c; 
+    font-size: 1.1em;
+}
+
+.palpite { 
+    font-weight: bold; 
+    font-size: 1.2em; 
+}
+
+.footer-bilhete { 
+    text-align: center; 
+    margin-top: 35px; 
+    font-size: 0.9em; 
+    color: #777; 
+}
+
+@media print {
+    body { 
+        margin: 0; 
+        background-color: #fff; 
+        -webkit-print-color-adjust: exact; 
+        print-color-adjust: exact; 
+    }
+    .bilhete-container { 
+        box-shadow: none; 
+        border: 2px solid #ccc; 
+        margin: 0; 
+        max-width: 100%; 
+        border-radius: 0;
+    }
+    .no-print { 
+        display: none; 
+    }
+}
+
+.no-print button {
+    display: block;
+    width: 180px;
+    margin: 25px auto;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.0em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+.no-print button:hover { 
+    background: linear-gradient(135deg, #2980b9, #21618c);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.6);
+}
+
+/* === Media Queries (Responsividade) === */
+
+/* Para telas maiores que 600px (Desktop e Tablets maiores) */
+@media (min-width: 601px) {
+    body { 
+        padding: 25px; 
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    .container { 
+        padding: 30px; 
+        margin: 25px auto; 
+    }
+    h1 { 
+        font-size: 2.5em; 
+    }
+    .rodada-info { 
+        font-size: 1.6em; 
+    }
+
+    .jogo-header {
+        padding: 25px; 
+        min-height: 160px;
+    }
+
+    .jogo-top-info {
+        font-size: 1.2em; 
+        color: #2c3e50;
+    }
+
+    .time-abbrev { 
+        font-size: 1.4em; 
+    }
+    .time-logo { 
+        width: 45px; 
+        height: 45px; 
+    }
+
+    .placar-gol {
+        font-size: 2.2em; 
+        min-width: 50px; 
+    }
+    .placar-x { 
+        font-size: 1.3em; 
+    }
+
+    .status {
+        font-size: 0.9em; 
+        padding: 8px 15px; 
+    }
+    .transmissao-link {
+        font-size: 1.0em; 
+    }
+}
+
+/* Media Query para telas muito pequenas (smartphones menores) */
+@media (max-width: 480px) {
+    .container { 
+        padding: 15px; 
+        margin: 15px auto; 
+    }
+    h1 { 
+        font-size: 1.8em; 
+        margin-bottom: 12px; 
+    }
+    .rodada-info { 
+        font-size: 1.2em; 
+        margin-bottom: 20px; 
+        padding: 12px;
+    }
+    .jogo-item { 
+        margin-bottom: 20px; 
+    }
+    .jogo-header { 
+        padding: 12px; 
+        min-height: 120px;
+    }
+
+    .jogo-top-info {
+        font-size: 0.9em;
+        margin-bottom: 12px;
+    }
+    .data-horario { 
+        font-weight: 700; 
+    }
+
+    .time-abbrev { 
+        font-size: 1.1em; 
+    }
+    .time-logo { 
+        width: 30px; 
+        height: 30px; 
+    }
+    .placar-gol { 
+        font-size: 1.8em; 
+    }
+
+    .jogo-bottom-info {
+        margin-top: 12px;
+    }
+    .status { 
+        font-size: 0.75em; 
+        padding: 5px 10px; 
+    }
+    .transmissao-link { 
+        font-size: 0.9em; 
+    }
+
+    .message-box { 
+        font-size: 0.95em; 
+        padding: 12px;
+    }
+    .classificacao-apostadores th,
+    .classificacao-apostadores td { 
+        padding: 8px 5px; 
+        font-size: 0.9em; 
+    }
+    .palpites-titulo { 
+        padding: 10px 15px; 
+        font-size: 1.0em; 
+    }
+    .palpites-lista { 
+        padding: 0 15px; 
+    }
+    .palpite-item { 
+        padding: 10px 0;
+    }
+    
+    .atualizar-link {
+        padding: 10px 20px;
+        font-size: 0.9em;
+        margin: 10px 5px;
+    }
+}
+
+/* --- END OF FILE estilo.css --- */
